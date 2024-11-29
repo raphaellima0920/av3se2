@@ -11,5 +11,16 @@ class User(db.Model):
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
 
     company_id = db.Column(db.Integer, db.ForeignKey('tb_rds_company.id'), nullable=False)
+
+    def to_dict(self):
+        return{
+            "id": self.id,
+            "name": self.name,
+            "email": self.email,
+            "active": self.active,
+            "created_at": self.created_at,
+            "company_id": self.company_id
+        }
+    
 def __repr__(self):
     return f'<User {self.name}>'

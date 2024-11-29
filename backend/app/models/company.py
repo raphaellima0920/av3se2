@@ -10,5 +10,12 @@ class Company(db.Model):
 
     workers = db.relationship('User', backref = 'Company', lazy=True)
 
+    def to_dict(self):
+        return{
+            "id": self.id,
+            "name": self.name,
+            "active": self.active,
+            "created_at": self.created_at
+        }
 def __repr__(self):
     return f'<Company {self.name}>'

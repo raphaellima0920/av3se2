@@ -10,10 +10,8 @@ def create_app():
 
     db.init_app(app)
 
-    from app.models import user, company, residue
-
     # Registro de Blueprint
-    # from app.routes import routes
-    # app.register_blueprint(routes)
+    from app.routes import routes
+    app.register_blueprint(routes)
 
     return app
